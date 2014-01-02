@@ -1,0 +1,7 @@
+## Interface: 50400
+## Title: Probably - Beastly
+## Notes: ProbablyEngine Custom Beast Mastery Hunter
+## Dependencies: Probably
+
+rotation.lua
+functions.lua
