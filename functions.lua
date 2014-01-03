@@ -286,7 +286,8 @@ function ts.clip()
     local down, up, lagHome, lagWorld = GetNetStats();
     --Calculate GCD
     local haste = UnitSpellHaste("player")
-    local gcd = (1.5 / ((haste/100) + 1)) + (lagWorld/1000)
+    --local gcd = (1.5 / ((haste/100) + 1)) + (lagWorld/1000)
+    local gcd = (1 + (lagWorld/1000))
     
     if duration == 0 then
         return false
