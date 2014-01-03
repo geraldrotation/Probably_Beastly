@@ -282,9 +282,11 @@ function ts.clip()
     local time_elapsed = (current_time - start)
     --Calculate Cooldown remaining
     local cooldown_remaining = (duration - time_elapsed)
+    --Check world latency
+    local down, up, lagHome, lagWorld = GetNetStats();
     --Calculate GCD
     local haste = UnitSpellHaste("player")
-    local gcd = (1.5 / ((haste/100) + 1)) + 0.1
+    local gcd = (1.5 / ((haste/100) + 1)) + (lagWorld/1000)
     
     if duration == 0 then
         return false
@@ -312,8 +314,47 @@ function ts.focusfire()
 end
     
 --/run local name, rank, icon, count, debuffType, duration, expirationTime, unitCaster, isStealable, shouldConsolidate, spellId = UnitBuff("player", "Aspect of the Iron Hawk"); print(icon)
+
 -----------------------------------------------------------------------------------------------------------------------------
--- Time to Max Focus --------------------------------------------------------------------------------------------------------
+-- Pause for CC--------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+function ts.cc()
+    local cc = {
+        115078,
+        118,
+        61305,
+        28272,
+        61721,
+        61780,
+        28271,
+        1499,
+        19386,
+        6358,
+        2637,
+        33786,
+        20066,
+        6770,
+        2094,
+        1130,
+    }
+    
+    
+    for i=1,25 do
+        for j=1,#cc do
+            local _,_,_,_,_,_,_,_,_,_,spellId = UnitDebuff("target", i)
+            if spellId == (cc[j]) then
+                PetFollow()
+                StopAttack()
+                return true
+            end
+        end
+    end
+end
+
+--/run local cc={ 118253, 1130, }; for i=1,25 do for j=1,#cc do local _,_,_,_,_,_,_,_,_,_,spellId = UnitDebuff("target", i); if spellId == (cc[j]) then print(spellId) end end end
+
+-----------------------------------------------------------------------------------------------------------------------------
+-- Time to Max Focus---------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------
 --[[    
 function ts.focus(value)    

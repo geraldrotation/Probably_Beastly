@@ -2,6 +2,11 @@
 -- Custom Beast Mastery Hunter Rotation
 -- Created on Dec 31st 2013 4:57 am
 ProbablyEngine.rotation.register_custom(253, "Beastly", {
+  --Pause @ player Feign Death
+    --FD
+    { "pause", "player.buff(5384)" },
+    --Pause on target has CC
+    { "pause", "@ts.cc" },
 
   --Queue
     --Concussive
@@ -59,13 +64,16 @@ ProbablyEngine.rotation.register_custom(253, "Beastly", {
     { "34477", { "!player.buff(34477)", "target.threat >= 50", "!focus.exists", "pet.exists" }, "pet" },
     
     
+  --Break CC
+    --Masters Call
+    { "53271", "player.state.snare", "player" },
+    { "53271", "player.state.root", "player" },
+    
+    
   --Interrupts
     {{
     --Counter Shot
-        { "147362", "target.interruptAt(75)" },
-    --Masters Call
-        { "53271", "player.state.snare", "player" },
-        { "53271", "player.state.root", "player" },
+        { "147362", "target.interruptAt(50)" },
     }, "modifier.interrupts" },
 
 
@@ -198,7 +206,7 @@ ProbablyEngine.rotation.register_custom(253, "Beastly", {
     --Rapid Fire T16 2piece
     { "3045", { "player.spell(3045).cooldown = 0", "@ts.t16" }},
     --Serpent Sting
-    { "1978", "!target.debuff(118253)" },
+    { "1978", { "!target.debuff(118253)", "target.ttd >= 14" }},
     --Glaive Toss
     { "117050", { "player.focus >= 55", "@ts.clip" }},
     --Glaive Toss
