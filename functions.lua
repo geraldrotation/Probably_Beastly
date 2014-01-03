@@ -186,19 +186,19 @@ function ts.t16()
     local itemArray=GetEquipmentSetItemIDs(set)
     
     if itemArray[1] == 99080 or 99660 or 99157 or 99402 then 
-        counter = counter + 1; 
+        counter = counter + 1 
     end
     if itemArray[3] == 99082 or 99574 or 99159 or 99404 then 
-        counter = counter + 1; 
+        counter = counter + 1 
     end
     if itemArray[5] == 99085 or 99577 or 99167 or 99405 then 
-        counter = counter + 1; 
+        counter = counter + 1
     end
     if itemArray[7] == 99081 or 99573 or 99158 or 99403 then 
-        counter = counter + 1; 
+        counter = counter + 1 
     end
     if itemArray[10] == 99086 or 99578 or 99168 or 99406 then 
-        counter = counter + 1; 
+        counter = counter + 1 
     end
     
     if counter >= 2 then
@@ -227,8 +227,10 @@ end
 function ts.casttime(spellId)
     --Get cast time for spellID
     local name, rank, icon, cost, isFunnel, powerType, castTime, minRange, maxRange = GetSpellInfo(spellId)
+    --Check world latency
+    local down, up, lagHome, lagWorld = GetNetStats()
     --Change castTime from milliseconds to seconds
-    local mstos = ((castTime + 150) / 1000)
+    local mstos = ((castTime + lagWorld) / 1000)
     --Get the Current Time
     local current_time = GetTime()
     --Get time that Kill Command was casted at
@@ -283,7 +285,7 @@ function ts.clip()
     --Calculate Cooldown remaining
     local cooldown_remaining = (duration - time_elapsed)
     --Check world latency
-    local down, up, lagHome, lagWorld = GetNetStats();
+    local down, up, lagHome, lagWorld = GetNetStats()
     --Calculate GCD
     local haste = UnitSpellHaste("player")
     --local gcd = (1.5 / ((haste/100) + 1)) + (lagWorld/1000)
