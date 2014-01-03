@@ -54,7 +54,7 @@ ProbablyEngine.rotation.register_custom(253, "Beastly", {
     { "109304", "player.health <= 45" },
     
     --Healthstone
-    { "!/run UseItemByName(5512)", "@ts.Healthstone" },
+    { "/run UseItemByName(5512)", "@ts.Healthstone" },
     
     --Mend Pet
     { "136", { "pet.exists", "pet.health <= 45", "!pet.buff(136)" }},
@@ -156,7 +156,7 @@ ProbablyEngine.rotation.register_custom(253, "Beastly", {
         --Bestial Wrath
             { "19574", { "@coreHunter.petInRange", "pet.exists", "player.spell(34026).cooldown <= 2" }},
         --Rabid Doesnt work
-            { "!/run CastSpellByID(53401)", { "@coreHunter.petInRange", "@ts.rabid" }},
+            { "/run CastSpellByID(53401)", { "@coreHunter.petInRange", "@ts.rabid" }},
         --Fervor
             { "82726", { "player.focus < 50", "pet.focus < 50" }},
         --Multishot
@@ -178,7 +178,7 @@ ProbablyEngine.rotation.register_custom(253, "Beastly", {
         --Bestial Wrath
             { "19574", { "@coreHunter.petInRange", "pet.exists", "player.spell(34026).cooldown <= 2" }},
         --Rabid Doesnt work
-            { "!/run CastSpellByID(53401)", { "@coreHunter.petInRange", "@ts.rabid" }},
+            { "/run CastSpellByID(53401)", { "@coreHunter.petInRange", "@ts.rabid" }},
         --Fervor
             { "82726", { "player.focus < 50", "pet.focus < 50" }},
         --Multishot
@@ -216,7 +216,7 @@ ProbablyEngine.rotation.register_custom(253, "Beastly", {
         --Bestial Wrath
             { "19574", { "@coreHunter.petInRange", "pet.exists", "player.spell(34026).cooldown <= 2" }},
         --Rabid Doesnt work
-            { "!/run CastSpellByID(53401)", { "@coreHunter.petInRange", "@ts.rabid" }},
+            { "/run CastSpellByID(53401)", { "@coreHunter.petInRange", "@ts.rabid" }},
         --Fervor
             { "82726", { "player.focus < 50", "pet.focus < 50" }},
         --Kill Command
@@ -254,7 +254,7 @@ ProbablyEngine.rotation.register_custom(253, "Beastly", {
     --Bestial Wrath
     { "19574", { "@coreHunter.petInRange", "pet.exists", "player.spell(34026).cooldown <= 2" }},
     --Rabid Doesnt work
-    { "!/run CastSpellByID(53401)", { "@coreHunter.petInRange", "@ts.rabid" }},
+    { "/run CastSpellByID(53401)", { "@coreHunter.petInRange", "@ts.rabid" }},
     --Fervor
     { "82726", { "player.focus < 50", "pet.focus < 50" }},
     --Kill Command
