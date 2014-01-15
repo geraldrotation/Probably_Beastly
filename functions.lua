@@ -356,6 +356,35 @@ end
 --/run local cc={ 118253, 1130, }; for i=1,25 do for j=1,#cc do local _,_,_,_,_,_,_,_,_,_,spellId = UnitDebuff("target", i); if spellId == (cc[j]) then print(spellId) end end end
 
 -----------------------------------------------------------------------------------------------------------------------------
+-- In Party or Raid (Misdirection)?------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+
+function ts.misdirect()
+    --local membersRaid = GetNumRaidMembers()
+    local membersParty = GetNumGroupMembers()
+    
+    local party = { "party1", "party2", "party3", "party4" }
+    local raid = { "raid1", "raid2", "raid3", "raid4", "raid5", "raid6", "raid7", "raid8", "raid9", "raid10", "raid11", "raid12", "raid13", "raid14", "raid15", "raid16", "raid17", "raid18", "raid19", "raid20", "raid21", "raid22", "raid23", "raid24", "raid25" } 
+    
+    if membersParty <= 5 and membersParty > 1 then
+        for i=1,4 do
+            role[i] = UnitGroupRolesAssigned(party[i])
+            if role[i] == "TANK" then
+                return false
+            end
+        end
+    elseif membersParty > 5 then
+        for i=1,25 do
+            role[i] = UnitGroupRolesAssigned(raid[i])
+            if role[i] == "TANK" then
+                return false
+            end
+        end
+    end
+    return true
+end
+
+-----------------------------------------------------------------------------------------------------------------------------
 -- Time to Max Focus---------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------
 --[[    
