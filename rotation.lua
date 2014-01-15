@@ -206,7 +206,7 @@ ProbablyEngine.rotation.register_custom(253, "Beastly", {
         --Arcane Shot
             { "3044", { "player.focus >= 70", "pet.buff(115939)" }},
         --Cobra Shot
-            { "77767", { "@ts.casttime(77767)", "@ts.cobra(77767)", "!player.spell(34026).cooldown <= 1" }},
+            { "77767", { "@ts.casttime(77767)", "@ts.cobra(77767)" }},
         --Cobra Shot
             { "77767", { "player.focus < 35", "player.spell(34026).cooldown >= 2" }},
         }, { "modifier.enemies > 2", "modifier.enemies < 5" }},    
@@ -244,7 +244,7 @@ ProbablyEngine.rotation.register_custom(253, "Beastly", {
         --Arcane Shot
             { "3044", "player.focus >= 70" },
         --Cobra Shot
-            { "77767", { "@ts.casttime(77767)", "@ts.cobra(77767)", "!player.spell(34026).cooldown <= 1" }},
+            { "77767", { "@ts.casttime(77767)", "@ts.cobra(77767)" }},
         --Cobra Shot
             { "77767", { "player.focus < 35", "player.spell(34026).cooldown >= 2" }},
         }, "modifier.enemies = 2" },
