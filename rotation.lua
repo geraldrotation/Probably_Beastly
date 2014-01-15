@@ -251,6 +251,16 @@ ProbablyEngine.rotation.register_custom(253, "Beastly", {
     }, "modifier.multitarget" },
 
   --Single Target
+    --Pet not in range?
+    {{
+        --Glaive Toss
+            { "117050", "player.focus >= 55" },
+        --Arcane Shot
+            { "3044", "player.focus >= 70" }, 
+        --Cobra Shot
+            { "77767", "player.focus < 70" },
+    }, "!@coreHunter.petInRange" },
+        
     --Bestial Wrath
     { "19574", { "@coreHunter.petInRange", "pet.exists", "player.spell(34026).cooldown <= 2" }},
     --Rabid
@@ -282,7 +292,7 @@ ProbablyEngine.rotation.register_custom(253, "Beastly", {
     --Arcane Shot
     { "3044", { "player.focus >= 70", "@ts.clip" }},
     --Cobra Shot
-    { "77767", { "@ts.casttime(77767)", "@ts.cobra(77767)", "!player.spell(34026).cooldown <= 1" }},
+    { "77767", { "@ts.casttime(77767)", "@ts.cobra(77767)" }},
     --Cobra Shot
     { "77767", { "player.focus < 35", "player.spell(34026).cooldown >= 2" }},
     
