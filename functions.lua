@@ -366,15 +366,15 @@ function ts.misdirect()
     local party = { "party1", "party2", "party3", "party4" }
     local raid = { "raid1", "raid2", "raid3", "raid4", "raid5", "raid6", "raid7", "raid8", "raid9", "raid10", "raid11", "raid12", "raid13", "raid14", "raid15", "raid16", "raid17", "raid18", "raid19", "raid20", "raid21", "raid22", "raid23", "raid24", "raid25" } 
     
-    if membersParty <= 5 and membersParty > 1 then
-        for i=1,4 do
+    if IsInGroup() and membersParty <= 5 then
+        for i=1,membersParty do
             role[i] = UnitGroupRolesAssigned(party[i])
             if role[i] == "TANK" then
                 return false
             end
         end
-    elseif membersParty > 5 then
-        for i=1,25 do
+    elseif IsInRaid() and membersParty > 5 then
+        for i=1,membersParty do
             role[i] = UnitGroupRolesAssigned(raid[i])
             if role[i] == "TANK" then
                 return false
