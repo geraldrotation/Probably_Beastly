@@ -173,7 +173,6 @@ end
 -----------------------------------------------------------------------------------------------------------------------------
 -- Check for T16 2Piece------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------
---/run local counter=0; local set = GetEquipmentSetInfo(1); local itemArray=GetEquipmentSetItemIDs(set); if itemArray[1] == 99080 then counter = counter + 1; print(counter) end; if itemArray[5] == 99085 then counter = counter + 1; print(counter) end;
 
 function ts.t16()
     local counter = 0
