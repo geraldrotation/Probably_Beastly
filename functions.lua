@@ -176,29 +176,26 @@ end
 --/run local counter=0; local set = GetEquipmentSetInfo(1); local itemArray=GetEquipmentSetItemIDs(set); if itemArray[1] == 99080 then counter = counter + 1; print(counter) end; if itemArray[5] == 99085 then counter = counter + 1; print(counter) end;
 
 function ts.t16()
-    local counter=0
+    local counter = 0
     
-    if GetEquipmentSetInfo(1) == nil then 
-        return false
-    end
-    
-    local set = GetEquipmentSetInfo(1) 
-    local itemArray=GetEquipmentSetItemIDs(set)
-    
-    if itemArray[1] == 99080 or 99660 or 99157 or 99402 then 
-        counter = counter + 1 
-    end
-    if itemArray[3] == 99082 or 99574 or 99159 or 99404 then 
-        counter = counter + 1 
-    end
-    if itemArray[5] == 99085 or 99577 or 99167 or 99405 then 
+    if IsEquippedItem(99080) or IsEquippedItem(99660) or IsEquippedItem(99157) or IsEquippedItem(99402) then
         counter = counter + 1
     end
-    if itemArray[7] == 99081 or 99573 or 99158 or 99403 then 
-        counter = counter + 1 
+    
+    if IsEquippedItem(99082) or IsEquippedItem(99574) or IsEquippedItem(99159) or IsEquippedItem(99404) then
+        counter = counter + 1
     end
-    if itemArray[10] == 99086 or 99578 or 99168 or 99406 then 
-        counter = counter + 1 
+    
+    if IsEquippedItem(99085) or IsEquippedItem(99577) or IsEquippedItem(99167) or IsEquippedItem(99405) then
+        counter = counter + 1
+    end
+    
+    if IsEquippedItem(99081) or IsEquippedItem(99573) or IsEquippedItem(99158) or IsEquippedItem(99403) then
+        counter = counter + 1
+    end
+    
+    if IsEquippedItem(99086) or IsEquippedItem(99578) or IsEquippedItem(99168) or IsEquippedItem(99406) then
+        counter = counter + 1
     end
     
     if counter >= 2 then
